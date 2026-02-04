@@ -1,0 +1,127 @@
+# ===============================
+# CodeRabbit Configuration
+# ===============================
+
+# -------------------------------
+# Review Behavior
+# -------------------------------
+reviews:
+  auto_review: true                # Automatically review every PR
+  review_level: thorough            # thorough | normal | light
+  request_changes: true             # Mark PR as "changes requested" if issues found
+
+  # Enable reviews for ALL branches (fixes your issue)
+  enabled_branches:
+    - "*"
+
+  # Disable noisy status comments (optional)
+  review_status: false
+
+# -------------------------------
+# Comment Behavior
+# -------------------------------
+comments:
+  inline: true                      # Inline comments on code
+  summary: true                     # PR summary comment
+  nitpicks: true                    # Allow style/naming comments
+  outside_diff: true                # Allow context-based comments
+
+# -------------------------------
+# Focus Areas (VERY IMPORTANT)
+# -------------------------------
+focus:
+  - database
+  - schema
+  - migrations
+  - transactions
+  - indexing
+  - data_integrity
+  - performance
+  - security
+  - concurrency
+  - error_handling
+
+# -------------------------------
+# Language & Style
+# -------------------------------
+language:
+  style_guide: conventional
+  enforce_consistency: true
+
+# -------------------------------
+# Security Rules
+# -------------------------------
+security:
+  enabled: true
+  check_secrets: true               # API keys, tokens
+  check_sql_injection: true
+  check_auth_flows: true
+  check_permissions: true
+
+# -------------------------------
+# Performance Rules
+# -------------------------------
+performance:
+  enabled: true
+  detect_n_plus_one: true
+  detect_slow_queries: true
+  suggest_indexes: true
+
+# -------------------------------
+# Database-Specific Rules
+# -------------------------------
+database:
+  require_transactions: true
+  enforce_foreign_keys: true
+  warn_on_missing_indexes: true
+  warn_on_nullable_columns: true
+  check_migration_safety: true
+  check_down_migrations: true
+
+# -------------------------------
+# CI / Infra Awareness
+# -------------------------------
+infrastructure:
+  analyze_ci: true
+  analyze_docker: true
+  analyze_env_files: true
+
+# -------------------------------
+# Ignore Paths (Reduce Noise)
+# -------------------------------
+ignore:
+  - node_modules/**
+  - dist/**
+  - build/**
+  - coverage/**
+  - .git/**
+  - .github/**
+  - vendor/**
+  - *.lock
+
+# -------------------------------
+# Interaction Commands
+# -------------------------------
+commands:
+  enabled: true
+  allow:
+    - review
+    - review thoroughly
+    - explain
+    - help
+    - recheck
+
+# -------------------------------
+# Output Tuning
+# -------------------------------
+output:
+  verbosity: medium                 # low | medium | high
+  tone: professional
+  explain_reasoning: true
+
+# -------------------------------
+# Experimental (Safe to Keep)
+# -------------------------------
+experimental:
+  smart_context: true
+  cross_file_analysis: true

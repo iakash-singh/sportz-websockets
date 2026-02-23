@@ -22,6 +22,7 @@ export const createMatchSchema = z
     homeTeam: z.string().min(1),
     awayTeam: z.string().min(1),
     startTime: z.iso.datetime(),
+    endTime: z.iso.datetime(),
     homeScore: z.coerce.number().int().nonnegative().optional(),
     awayScore: z.coerce.number().int().nonnegative().optional(),
   })

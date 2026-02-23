@@ -1,7 +1,7 @@
 import express from 'express';
 import {matchRouter} from "./routes/matches.js";
 import * as http from "node:http";
-import {attachWebSocket} from "./ws/server.js";
+import {attachWebSocketServer} from "./ws/server.js";
 
 
 const PORT = Number(process.env.PORT || 8000);
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 
 app.use('/matches', matchRouter)
 
-const {broadCastMatchCreated} = attachWebSocket(server);
+const {broadCastMatchCreated} = attachWebSocketServer(server);
 app.locals.broadcastMatchCreated = broadCastMatchCreated;
 
 server.listen(PORT, HOST, () => {
